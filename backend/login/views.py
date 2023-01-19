@@ -35,9 +35,20 @@ def add_user(request):
     """
     methord to add/create user in the data base
     """
+
+    #if request.data.password:
+    print(request.data)
+        #print("\n\n\n")
+        #print(make_password(str(serializer["password"])))
+        #serializer["password"] = str(make_password(serializer["password"]))
+    
+
+
     serializer = PersonSerializer(data = request.data)
     
     if serializer.is_valid():
+        
+        
         serializer.save()
         return Response(serializer.data)
     else:
